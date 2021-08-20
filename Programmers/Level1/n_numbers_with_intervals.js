@@ -1,3 +1,4 @@
+//등차수열을 갖는 배열
 function solution(x, n) {
     var answer = [];
     if ((x >= -10000000 && x <= 10000000) && (n >= 1 && n <= 1000)) {
