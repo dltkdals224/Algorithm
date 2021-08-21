@@ -19,6 +19,14 @@ function solution(phone_number) {
     ;
 }
 
+
+//New Information
+//.length
+//.substring(), .substr()
+//.concat()
+//.charAt()
+
+
 //정규식 풀이법
 /*
 function hide_numbers(s) {

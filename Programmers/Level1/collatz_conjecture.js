@@ -1,4 +1,4 @@
-//8월 20일
+//8월 21일
 function solution(num) {
     for (let count = 0; count < 500; count++) {
         if (num == 1)
