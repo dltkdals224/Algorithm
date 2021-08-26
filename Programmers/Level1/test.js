@@ -1,25 +1,15 @@
 //test page
-string = "try hello world";
-let ans = '';
+let answer = 0;
 
-console.log(string);
+s = '1234'
 
-let arr = string.split(' ', string.length);
-console.log(arr);
-let arr2 = '';
+let arr = s.split('');
+console.log(arr[0]);
+if (arr[0] = '-') {
+    answer = Number(s) * (-1);
+} else
+    answer = Number(s);
 
-for (let i = 0; i < arr.length; i++)
-    for (let j = 0; j < arr[i].length; j++) {
-        arr2 = arr[i].split('', arr[i].length);
-    }
+console.log(answer);
 
-console.log(arr2);
-
-//console.log(ans);
-//let arr2 = arr.split('', arr.length);
-
-//.toUpperCase()
-//.toLowerCase()
-
-//.join()
-//.toString()
+return answer;
