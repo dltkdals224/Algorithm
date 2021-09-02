@@ -1,4 +1,4 @@
-//2021.09.01
+//2021.09.02
 function solution(strings, n) {
     let answer = [];
     let arr = [];
@@ -7,12 +7,16 @@ function solution(strings, n) {
     //arr[k] = strings[k].split('');
 
     function compare(a, b) {
-        console.log(a);
-        return b - a;
+        let arr1 = [];
+        let arr2 = [];
+        arr1 = a.split('');
+        arr2 = b.split('');
+        console.log(arr1[n]);
+        if (arr2[n] > arr1[n])
+            return b - a;
     }
 
-    answer = strings.sort();
-    console.log(answer);
+    console.log(strings.sort(compare));
 
 }
 
