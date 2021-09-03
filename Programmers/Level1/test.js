@@ -1,21 +1,9 @@
 //2021.09.01
 function solution(strings, n) {
     let answer = [];
-    let arr = [];
 
-    //for (let k = 0; k < strings.length; k++)
-    //arr[k] = strings[k].split('');
-
-    function compare(a, b) {
-        console.log(a);
-        return b - a;
-    }
-
-    answer = strings.sort();
+    answer = strings[1].push();
     console.log(answer);
-
 }
 
-solution(["sun", "bed", "car"], 1); //car bed sun
-console.log("2nd");
-solution(["sun", "bed", "car"], 2); //bed sun car
+solution([1, 1, 3, 3, 0, 1, 1]);
