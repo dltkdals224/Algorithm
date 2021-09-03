@@ -1,4 +1,5 @@
 //2021.09.02
+//미완성
 function solution(strings, n) {
     let answer = [];
     let arr = [];
