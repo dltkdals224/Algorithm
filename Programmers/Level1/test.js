@@ -1,15 +1,2 @@
-const animals = [{
-    name: 'lion',
-    size: 'big',
-    weight: 200
-}, {
-    name: 'cat',
-    size: 'small',
-    weight: 10
-}];
-
-const animalsNames = animals.map(function (sex) {
-    return sex.name;
-});
-
-console.log(animalsNames);
+let cor = [1, 2, 3, 4, 5, 5, 5];
+console.log(Math.max(1, 2, 2, 3, 3));
