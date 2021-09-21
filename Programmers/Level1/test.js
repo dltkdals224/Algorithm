@@ -1,9 +1,15 @@
-//2021.09.01
-function solution(strings, n) {
-    let answer = [];
+const animals = [{
+    name: 'lion',
+    size: 'big',
+    weight: 200
+}, {
+    name: 'cat',
+    size: 'small',
+    weight: 10
+}];
 
-    answer = strings[1].push();
-    console.log(answer);
-}
+const animalsNames = animals.map(function (sex) {
+    return sex.name;
+});
 
-solution([1, 1, 3, 3, 0, 1, 1]);
+console.log(animalsNames);
