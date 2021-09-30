@@ -1,22 +1,58 @@
 //2021.09.23
-//미완성
+//2021.09.30 도움을 받아 완료.
 
-//참고 : https://velog.io/@yunsungyang-omc/JS-%EB%B0%B0%EC%97%B4%EC%97%90%EC%84%9C-%EC%A4%91%EB%B3%B5-%EC%A0%9C%EA%B1%B0%ED%95%98%EA%B8%B0
 // function solution(participant, completion) {
-//   console.log(
-//     participant.filter((item, index) => {
-//       participant.indexOf(item) !== index;
-//     })
-//   );
+//   let overlap = [];
+
+//   if (participant.length == 1) return participant[0];
+//   else {
+//     for (let n = 0; n < participant.length; n++) {
+//       if (
+//         participant.filter((elem) => participant[n] == elem).length !==
+//         completion.filter((elem) => participant[n] == elem).length
+//       ) {
+//         // console.log(participant[n]);
+//         return participant[n];
+//       }
+//     }
+//   }
+// }
+// for문 안의 filter가 O(n)의 시간복잡도를 가져서 이중 for문으로 구현되어 효용성 테스트를 통과하지 못한다.
+
+//단순히 한명을 찾는 것 이므로 배열을 정렬한 후 다른 포인트만 찾으면 되는 문제였음.
 function solution(participant, completion) {
-  let newParticipant = new Set(participant);
-  let newCompletion = new Set(completion);
+  const total = participant.length;
+  var answer = "";
 
-  console.log(newParticipant);
+  participant.sort();
+  completion.sort();
 
-  if (newParticipant.length == newCompletion.length) {
-    // 중복이 있을 경우 중복인자 개수 파악해서 다른거 리턴때려야 함
-  } else return String(participant.filter((x) => !completion.includes(x)));
+  for (let i = 0; i < total; i++) {
+    if (participant[i] !== completion[i]) {
+      answer = participant[i];
+      return answer;
+    }
+  }
 }
 
-solution(["mislav", "stanko", "mislav", "ana"], ["stanko", "mislav", "ana"]);
+//New Information
+// 배열관련 시간복잡도
+/*
+1) push & pop : O(1)
+2) unshift & unshift & splice : O(n)
+3) sort : O(n log(n)) - 구현방식에 따라 다르다?
+4) concat & slice & indexOf() : O(n)
+5) filter & map & forEach & reduce : O(n)  ++ forEach보다 일반적 for문이 1.4배저옫 빠르다고 한다.
+6) some & every : O(n)
+// 다른 내장함수 시간복잡도 파악해놓는것도 도움이 될듯.
+*/
+// 객체 접근법
+/*
+const arr = ["1", "2", "3"];
+let sangmin = new Set(arr);
+
+console.log(sangmin); //Set(3) {'1','2','3'}
+console.log(sangmin.size); //3
+console.log(Object.keys(sangmin).length); //0
+//key값이 따로 존재하지 않기 때문.
+*/

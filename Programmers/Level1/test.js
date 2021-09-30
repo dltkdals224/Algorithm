@@ -1,27 +1,7 @@
-import React, { useState } from "react";
-export default function Counter() {
-  const [state, setState] = useState({ count: 0 });
-  console.log("mounted or updated");
-  return (
-    <div>
-      {" "}
-      <p>{state.count}</p>{" "}
-      <button
-        onClick={() => {
-          setState((prevState) => ({ count: prevState.count + 1 }));
-        }}
-      >
-        {" "}
-        +1{" "}
-      </button>{" "}
-      <button
-        onClick={() =>
-          setState((prevState) => ({ count: prevState.count - 1 }))
-        }
-      >
-        {" "}
-        -1{" "}
-      </button>{" "}
-    </div>
-  );
-}
+const arr = ["1", "2", "3"];
+let sangmin = new Set(arr);
+
+console.log(sangmin); //Set(3) {'1','2','3'}
+console.log(sangmin.size); //3
+console.log(Object.keys(sangmin).length); //0
+//key값이 따로 존재하지 않기 때문.
