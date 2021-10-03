@@ -79,3 +79,8 @@ function solution(n, lost, reserve) {
     this.spare_suit = spare_suit;
   }
 */
+
+//다른 풀이
+/*
+
+*/
