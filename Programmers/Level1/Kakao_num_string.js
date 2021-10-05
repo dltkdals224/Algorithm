@@ -1,32 +1,37 @@
 //2021.10.05
-//일시 정지
 function solution(s) {
   let ans = "";
 
-  rejexForZero = /zero/gi;
-  rejexForOne = /one/gi;
-  rejexForTwo = /two/gi;
-  rejexForThree = /three/gi;
-  rejexForFour = /four/gi;
-  rejexForFive = /five/gi;
-  rejexForSix = /six/gi;
-  rejexForSeven = /seven/gi;
-  rejexForEight = /eight/gi;
-  rejexForNine = /nine/gi;
+  ans = s
+    .replace(/zero/g, "0")
+    .replace(/one/g, "1")
+    .replace(/two/g, "2")
+    .replace(/three/g, "3")
+    .replace(/four/g, "4")
+    .replace(/five/g, "5")
+    .replace(/six/g, "6")
+    .replace(/seven/g, "7")
+    .replace(/eight/g, "8")
+    .replace(/nine/g, "9");
 
-  //   ans = s.replace(rejexForZero, "0");
-  //   ans = s.replace(rejexForOne, "1");
-  //   ans = s.replace(rejexForTwo, "2");
-  //   ans = s.replace(rejexForThree, "3");
-  //   ans = s.replace(rejexForFour, "4");
-  //   ans = s.replace(rejexForFive, "5");
-  //   ans = s.replace(rejexForSix, "6");
-  ans = s.replace("seven", "7");
-  ans = s.replace(rejexForEight, "8");
-  ans = s.replace(rejexForNine, "9");
-
-  console.log(ans);
-  return ans;
+  return Number(ans);
 }
 
-solution("one4seveneight");
+//New Information
+//replace : 문자 대체
+//정규식
+
+//다른풀이
+/*
+function solution(s) {
+    let numbers = ["zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"];
+    var answer = s;
+
+    for(let i=0; i< numbers.length; i++) {
+        let arr = answer.split(numbers[i]);
+        answer = arr.join(i);
+    }
+
+    return Number(answer);
+}
+*/
