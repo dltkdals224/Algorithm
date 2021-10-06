@@ -3,6 +3,7 @@
 function solution(board, moves) {
   let ans = 0;
   let basket = [];
+  basket.push(0);
 
   //집기
   function catchItem(tmp) {
@@ -13,48 +14,31 @@ function solution(board, moves) {
         //집을것이 있다
         basket.push(board[t][tmp - 1]);
         board[t].splice(tmp - 1, 1, 0);
-        return 0;
+        break;
       }
     }
   }
 
   //함수 호출 후 집기과정.
   for (let n = 0; n < moves.length; n++) catchItem(moves[n]);
-  console.log(basket);
+  // console.log(basket);
 
-  //같은 원소 팡!
+  //팡!
   for (let n = 0; n < basket.length; n++) {
     if (basket[n] == basket[n + 1]) {
       basket.splice(n, 2);
       ans += 2;
       n = 0;
-    } else;
+      continue;
+    } else continue;
   }
 
-  console.log(ans);
+  // console.log(ans);
   return ans;
 }
 
-solution(
-  [
-    [0, 0, 0, 0, 0],
-    [0, 0, 1, 0, 3],
-    [0, 2, 5, 0, 1],
-    [4, 2, 4, 4, 2],
-    [3, 5, 1, 3, 1],
-  ],
-  [1, 5, 3, 5, 1, 2, 1, 4],
-  4
-);
+//New Information
+//.splice(a,b,c)
 
-solution(
-  [
-    [0, 0, 0, 0, 0, 5],
-    [0, 0, 1, 0, 3, 5],
-    [0, 2, 5, 0, 1, 4],
-    [4, 2, 4, 4, 2, 2],
-    [3, 5, 1, 3, 1, 1],
-    [3, 5, 1, 3, 1, 1],
-  ],
-  [3, 3, 3, 3, 3, 3, 6, 6, 6, 6, 6, 6]
-);
+//문제 핵심 풀이법
+//basket에 0을 하나 넣어놔야 아무것도 없을때 오류가 나지 않는다.
