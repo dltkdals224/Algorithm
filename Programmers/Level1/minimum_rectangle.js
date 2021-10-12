@@ -1,136 +1,111 @@
 //2021.10.11
-// function solution(sizes) {
-//   let ans = 0;
-//   let preAns1 = -1;
-//   let preAns2 = -1;
+function solution(sizes) {
+  let ans = 0;
+  let tmp = 0;
+  let changeAns1 = 9999;
+  let changeAns2 = 9999;
 
-//   let widthTmp = [];
-//   let heightTmp = [];
+  let widthTmp = [];
+  let heightTmp = [];
 
-//   for (let n = 0; n < sizes.length; n++) {
-//     widthTmp.push(sizes[n][0]);
-//     heightTmp.push(sizes[n][1]);
-//   }
+  for (let n = 0; n < sizes.length; n++) {
+    widthTmp.push(sizes[n][0]);
+    heightTmp.push(sizes[n][1]);
+  }
 
-//   //   console.log(widthTmp);
-//   //   console.log(heightTmp);
+  // console.log(widthTmp);
+  // console.log(heightTmp);
 
-//   let widthMax = Math.max(...widthTmp);
-//   let heightMax = Math.max(...heightTmp);
-//   ans = widthMax * heightMax;
+  function changeIndex1() {
+    let widthMax = Math.max(...widthTmp);
+    let heightMax = Math.max(...heightTmp);
+    ans = widthMax * heightMax;
+    let widthMaxIndex = [];
+    let heightMaxIndex = [];
 
-//   let widthMaxIndex = [];
-//   widthTmp.filter((elem, index) => {
-//     if (elem == widthMax) {
-//       widthMaxIndex.push(index);
-//     }
-//   });
-//   let heightMaxIndex = [];
-//   heightTmp.filter((elem, index) => {
-//     if (elem == heightMax) {
-//       heightMaxIndex.push(index);
-//     }
-//   });
-//   console.log(widthMaxIndex);
-//   console.log(heightMaxIndex);
+    widthTmp.filter((elem, index) => {
+      if (elem == widthMax) {
+        widthMaxIndex.push(index);
+      }
+    });
+    heightTmp.filter((elem, index) => {
+      if (elem == heightMax) {
+        heightMaxIndex.push(index);
+      }
+    });
 
-//   //최댓값 인덱스끼리 바꿔보기
-//   let tmp = 0;
-//   let tmpIndex = 0;
-//   let tmpArr = [];
-//   if (widthMaxIndex.length == 1) {
-//     tmp = widthTmp[widthMaxIndex];
-//     widthTmp[widthMaxIndex] = heightTmp[widthMaxIndex];
-//     heightTmp[widthMaxIndex] = tmp;
+    for (let n = 0; n < widthMaxIndex.length; n++) {
+      tmp = widthTmp[widthMaxIndex[n]];
+      widthTmp.splice(widthMaxIndex[n], 1, heightTmp[n]);
+      heightTmp.splice(widthMaxIndex[n], 1, tmp);
+    }
+    // console.log(widthTmp);
+    // console.log(heightTmp);
+    changeAns1 = Math.max(...widthTmp) * Math.max(...heightTmp);
+    if (changeAns1 < ans) {
+      changeIndex1();
+    } else {
+      widthTmp = [];
+      heightTmp = [];
 
-//     // console.log(widthTmp);
+      for (let n = 0; n < sizes.length; n++) {
+        widthTmp.push(sizes[n][0]);
+        heightTmp.push(sizes[n][1]);
+      }
+    }
+  }
 
-//     widthMax = Math.max(...widthTmp);
-//     heightMax = Math.max(...heightTmp);
+  //
 
-//     preAns1 = widthMax * heightMax;
-//     tmp = widthTmp[widthMaxIndex];
-//     widthTmp[widthMaxIndex] = heightTmp[widthMaxIndex];
-//     heightTmp[widthMaxIndex] = tmp;
+  function changeIndex2() {
+    let widthMax = Math.max(...widthTmp);
+    let heightMax = Math.max(...heightTmp);
+    ans = widthMax * heightMax;
+    let widthMaxIndex = [];
+    let heightMaxIndex = [];
 
-//     // console.log(widthTmp);
-//   } else {
-//     for (let n = 0; n < widthMaxIndex.length; n++)
-//       heightTmp.filter((elem, index) => {
-//         if (index == widthMaxIndex[n]) {
-//           tmpArr.push(elem);
-//         }
-//       });
-//     tmp = Math.min(tmpArr);
-//     heightTmp.filter((elem, index) => {
-//       if (index == widthMaxIndex && tmp == elem) {
-//         console.log("hi");
-//       }
-//     });
-//   }
+    widthTmp.filter((elem, index) => {
+      if (elem == widthMax) {
+        widthMaxIndex.push(index);
+      }
+    });
+    heightTmp.filter((elem, index) => {
+      if (elem == heightMax) {
+        heightMaxIndex.push(index);
+      }
+    });
 
-//   if (heightMaxIndex.length == 1) {
-//     tmp = heightTmp[heightMaxIndex];
-//     heightTmp[heightMaxIndex] = widthTmp[heightMaxIndex];
-//     widthTmp[heightMaxIndex] = tmp;
+    for (let n = 0; n < heightMaxIndex.length; n++) {
+      tmp = heightTmp[heightMaxIndex[n]];
+      heightTmp.splice(heightMaxIndex[n], 1, widthTmp[n]);
+      widthTmp.splice(heightMaxIndex[n], 1, tmp);
+    }
+    // console.log(widthTmp);
+    // console.log(heightTmp);
+    changeAns2 = Math.max(...widthTmp) * Math.max(...heightTmp);
+    if (changeAns2 < ans) {
+      changeIndex2();
+    } else {
+      widthTmp = [];
+      heightTmp = [];
 
-//     console.log(heightTmp);
+      for (let n = 0; n < sizes.length; n++) {
+        widthTmp.push(sizes[n][0]);
+        heightTmp.push(sizes[n][1]);
+      }
+    }
+  }
 
-//     widthMax = Math.max(...widthTmp);
-//     heightMax = Math.max(...heightTmp);
-
-//     preAns2 = widthMax * heightMax;
-//     tmp = heightTmp[heightMaxIndex];
-//     heightTmp[heightMaxIndex] = widthTmp[heightMaxIndex];
-//     widthTmp[heightMaxIndex] = tmp;
-
-//     console.log(heightTmp);
-//   } else {
-//     for (let n = 0; n < heightMaxIndex.length; n++)
-//       widthTmp.filter((elem, index) => {
-//         if (index == heightMaxIndex[n]) {
-//           tmpArr.push(elem);
-//         }
-//       });
-//     tmp = Math.min(...tmpArr);
-//     for (let n = 0; n < heightMaxIndex.length; n++)
-//       widthTmp.filter((elem, index) => {
-//         if (index == heightMaxIndex[n] && elem == tmp) {
-//           tmpIndex = index;
-//         }
-//       });
-//     tmp = heightTmp[tmpIndex];
-//     heightTmp[tmpIndex] = widthTmp[tmpIndex];
-//     widthTmp[tmpIndex] = tmp;
-
-//     console.log(heightTmp);
-
-//     widthMax = Math.max(...widthTmp);
-//     heightMax = Math.max(...heightTmp);
-//     console.log(widthMax);
-//     console.log(heightMax);
-
-//     preAns2 = widthMax * heightMax;
-//     tmp = heightTmp[tmpIndex];
-//     heightTmp[tmpIndex] = widthTmp[tmpIndex];
-//     widthTmp[tmpIndex] = tmp;
-
-//     console.log(heightTmp);
-//   }
-
-//   //답안 정렬
-//   console.log(preAns2);
-//   ans = Math.min(ans, preAns1, preAns2);
-//   console.log(ans);
-//   return ans;
-// }
-
-// solution([
-//   [60, 50],
-//   [30, 70],
-//   [50, 30],
-//   [80, 40],
-// ]);
+  changeIndex1();
+  changeIndex2();
+  //3개중 최솟값이 답
+  console.log(ans);
+  console.log(changeAns1);
+  console.log(changeAns2);
+  ans = Math.min(ans, changeAns1, changeAns2);
+  console.log(ans);
+  return ans;
+}
 
 solution([
   [10, 7],
@@ -138,4 +113,12 @@ solution([
   [8, 15],
   [14, 7],
   [5, 15],
+]);
+
+solution([
+  [14, 4],
+  [19, 6],
+  [6, 16],
+  [18, 7],
+  [7, 11],
 ]);
