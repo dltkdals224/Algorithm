@@ -1,5 +1,5 @@
 //2021.10.04
-//왜 안되는지 모르겠네.
+
 // 참고 : 나와같은 코드 작성하신 분 - https://my-t-space.tistory.com/16
 function solution(numbers, hand) {
   let ans = "";
@@ -10,7 +10,15 @@ function solution(numbers, hand) {
     if (b == 0) {
       b = 11;
     }
-    if (Math.abs(a - b) == 1 || Math.abs(a - b) == 3) return 1;
+    if (a == "*") {
+      a = 10;
+    }
+    if (a == "#") {
+      a = 12;
+    }
+    //이부분 때문에 일주일 걸림
+    if (Math.abs(a - b) == 0) return 0;
+    else if (Math.abs(a - b) == 1 || Math.abs(a - b) == 3) return 1;
     else if (
       Math.abs(a - b) == 2 ||
       Math.abs(a - b) == 4 ||
@@ -61,8 +69,5 @@ function solution(numbers, hand) {
     }
   }
 
-  console.log(ans);
   return ans;
 }
-
-solution([7, 0, 8, 2, 8, 3, 1, 5, 7, 6, 2], "left");
