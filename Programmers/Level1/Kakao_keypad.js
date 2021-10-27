@@ -16,8 +16,9 @@ function solution(numbers, hand) {
     if (a == "#") {
       a = 12;
     }
-    //이부분 때문에 일주일 걸림
+    //이부분 때문에 일주일 걸림 ㅅㅂ ㅋㅋ
     if (Math.abs(a - b) == 0) return 0;
+    //
     else if (Math.abs(a - b) == 1 || Math.abs(a - b) == 3) return 1;
     else if (
       Math.abs(a - b) == 2 ||
