@@ -1,4 +1,5 @@
 //2021.10.29
+//수정완 //1단계의 것을 그대로 사용
 function solution(arr) {
   let ans = -1;
 
@@ -35,11 +36,12 @@ function solution(arr) {
     ans = arr[0];
   } else if (arr.length == 2) {
     ans = find_LCM(arr[0], arr[1]);
-  } else
+  } else {
+    ans = find_LCM(arr[0], arr[1]);
     for (let n = 2; n < arr.length; n++) {
       ans = find_LCM(ans, arr[n]);
     }
+  }
 
-  console.log(ans);
   return ans;
 }
