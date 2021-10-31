@@ -28,4 +28,4 @@ function solution(nums) {
 }
 
 //new information
-//fileter와 includes를 통한 차집합 연산
+//filter와 includes를 통한 차집합 연산
