@@ -3,10 +3,19 @@ function solution(s) {
   let ans = s;
   let tmp = "";
 
-  ans = ans.split(" ");
+  //시작할 때, 대문자를 전부 소문자화.
+  ans = ans.split("");
+  for (let m = 0; m < ans.length; m++) {
+    if (ans[m].charCodeAt(0) >= 65 && ans[m].charCodeAt(0) <= 90)
+      ans.splice(m, 1, String.fromCharCode(ans[m].charCodeAt(0) + 32));
+    else continue;
+  }
+  ans = ans.join("");
 
+  //맨 앞글자 대문자화.
+  ans = ans.split(" ");
   for (let n = 0; n < ans.length; n++) {
-    if (isNaN(ans[n][0])) {
+    if (ans[n][0].charCodeAt(0) >= 97 && ans[n][0].charCodeAt(0) <= 122) {
       tmp = ans[n].split("");
       tmp.splice(0, 1, String.fromCharCode(ans[n][0].charCodeAt(0) - 32));
       tmp = tmp.join("");
@@ -17,7 +26,10 @@ function solution(s) {
   }
 
   ans = ans.join(" ");
+  console.log(ans);
   return ans;
 }
 
-//대문자를 소문자화 하는 과정 필요
+solution("3people unFollowed me");
+
+//run time error발생
