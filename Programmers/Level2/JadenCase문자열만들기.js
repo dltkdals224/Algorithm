@@ -1,7 +1,7 @@
 //2021.11.01
 function solution(s) {
-  let ans = s;
-  let tmp = "";
+  let ans = "";
+  ans = s;
 
   //시작할 때, 대문자를 전부 소문자화.
   ans = ans.split("");
@@ -10,26 +10,25 @@ function solution(s) {
       ans.splice(m, 1, String.fromCharCode(ans[m].charCodeAt(0) + 32));
     else continue;
   }
-  ans = ans.join("");
-
-  //맨 앞글자 대문자화.
-  ans = ans.split(" ");
+  //각 단어의 첫 문자 대문자화.
   for (let n = 0; n < ans.length; n++) {
-    if (ans[n][0].charCodeAt(0) >= 97 && ans[n][0].charCodeAt(0) <= 122) {
-      tmp = ans[n].split("");
-      tmp.splice(0, 1, String.fromCharCode(ans[n][0].charCodeAt(0) - 32));
-      tmp = tmp.join("");
-    } else {
-      tmp = ans[n];
+    if (
+      (ans[n - 1] == " " || ans[n - 1] == undefined) &&
+      ans[n].charCodeAt(0) >= 97 &&
+      ans[n].charCodeAt(0) <= 122
+    ) {
+      ans.splice(n, 1, String.fromCharCode(ans[n].charCodeAt(0) - 32));
     }
-    ans[n] = tmp;
   }
 
-  ans = ans.join(" ");
-  console.log(ans);
+  ans = ans.join("");
   return ans;
 }
 
-solution("3people unFollowed me");
-
-//run time error발생
+//다른풀이
+/* function solution(s) {
+    return s.split(" ").map(v => v.charAt(0).toUpperCase() + v.substring(1).toLowerCase()).join(" ");
+}
+*/
+//map함수 깔끔하다.
+//charAt과 인덱스 접근법의 차이
