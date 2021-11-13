@@ -7,6 +7,7 @@ function solution(n) {
     else if (n == 1) return 1;
     else return Fibonacci(n - 1) + Fibonacci(n - 2);
   }
+  //30분정도 추가 고민해 보았지만 딱히 보이지 않음
 
   ans = Fibonacci(n) % 1234567;
   console.log(ans);
