@@ -1,10 +1,18 @@
-arr = "ABC";
-arr2 = "AB";
-arr3 = "AC";
-arr4 = "AD";
-arr5 = "ABC";
+// String객체 생성하기
+var strObj = new String("hello");
+console.log(strObj); //[String: 'hello']
 
-console.log(arr.includes(arr2));
-console.log(arr.includes(arr3));
-console.log(arr.includes(arr4));
-console.log(arr.includes(arr5));
+// Array(배열)객체 생성하기
+var strObj = new Array([1, 2, 3]);
+console.log(arrObj); //[ [ 1, 2, 3 ] ]
+
+acc = async function (a, b) {
+  delay(10);
+
+  if (a < 0) throw new Error("not supported");
+  return a + b;
+};
+let string = await add(-2, 4);
+console.log(string);
+// strObj
+// string
