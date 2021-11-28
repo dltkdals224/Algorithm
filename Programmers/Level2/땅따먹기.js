@@ -2,45 +2,36 @@
 //전부 실패
 function solution(land) {
   let ans = 0;
-  let tmp1 = 0;
-  let tmp2 = 0;
+  let len = land.length;
+  let top = [];
 
-  const arr = JSON.parse(JSON.stringify(land));
+  for (let n = 0; n < len; n++) {
+    console.log(land[n]);
 
-  let continuity = [];
-
-  for (let n = 0; n < land.length; n++) {
-    continuity.push(land[n].indexOf(Math.max(...land[n])));
-  }
-
-  for (let m = 0; m < continuity.length; m++) {
-    if (continuity[m] === continuity[m + 1]) {
-      tmp1 = land[continuity.indexOf(continuity[m])][continuity[m]];
-      land[continuity.indexOf(continuity[m])][continuity[m]] = 0;
-
-      tmp2 =
-        land[
-          continuity.indexOf(
-            continuity[m],
-            continuity.indexOf(continuity[m]) + 1
-          )
-        ][continuity[m + 1]];
-      land[
-        continuity.indexOf(continuity[m], continuity.indexOf(continuity[m]) + 1)
-      ][continuity[m + 1]] = 0;
-
-      //
-      if (tmp1 + Math.max(...land[m + 1]) < tmp2 + Math.max(...land[m])) {
-        continuity[m] = land[m].indexOf(Math.max(...land[m]));
-      } else {
-        continuity[m + 1] = land[m + 1].indexOf(Math.max(...land[m + 1]));
-      }
+    if (
+      land[n].indexOf(Math.max(...land[n])) ===
+      land[n - 1].indexOf(Math.max(...land[n - 1]))
+    ) {
+      //이제 hardcore한 비교연산이 필요하다.
+    } else {
+      top.push(Math.max(...land[n]));
     }
   }
+  console.log(top);
 
-  for (let n = 0; n < continuity.length; n++) {
-    ans += arr[n][continuity[n]];
-  }
-
+  console.log(ans);
   return ans;
 }
+
+solution([
+  [1, 2, 3, 5],
+  [5, 6, 7, 8],
+  [4, 3, 2, 1],
+]); // 16
+solution([
+  [1, 2, 3, 40],
+  [90, 95, 85, 100],
+  [1, 70, 60, 3],
+  [20, 50, 30, 1],
+  [1, 100, 2, 3],
+]); // 4행까지는 40,90,60,50 // 5행 가면서 40,90,70,30,100
