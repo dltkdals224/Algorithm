@@ -1,5 +1,13 @@
 function safelyGet(object, path) {
-  //
+  function multiIndex(object, is) {
+    if (object === undefined) {
+      return undefined;
+    }
+
+    return is.length === 0 ? object : multiIndex(object[is[0]], is.slice(1));
+  }
+
+  return multiIndex(object, path.split("."));
 }
 
 function solution(input, path) {
