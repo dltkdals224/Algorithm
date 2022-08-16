@@ -1,16 +1,39 @@
 function createQueryString(object) {
   const KEY_LENGTH = Object.keys(object).length;
-  let ANS = "?";
+  let ANS = "";
 
-  const endPoint = (string) => {
-    return string.length === 1 ? "" : string.slice(0, -1);
-  };
-
-  for (const property in object) {
-    console.log(typeof object[property]);
-    ANS += `${property}=${object[property]}&`;
+  // console.log(KEY_LENGTH);
+  if (KEY_LENGTH === 0) {
+    return "";
   }
-  console.log(ANS);
+
+  for (let i = 0; i < KEY_LENGTH; i++) {
+    if (
+      Object.values(object)[i] === undefined ||
+      Object.values(object)[i] === null
+    ) {
+      ANS += "";
+      continue;
+    }
+
+    if (typeof Object.values(object)[i] === "object") {
+      Object.values(object)[i].forEach((v) => {
+        ANS += `&${Object.keys(object)[i]}=${v}`;
+      });
+    }
+
+    if (typeof Object.values(object)[i] == "boolean") {
+      ANS += `&${Object.keys(object)[i]}=${Object.values(object)[i]}`;
+    }
+
+    if (typeof Object.values(object)[i] == "string") {
+      const NEW_STRING = Object.values(object)[i].replace(/ /g, "%20");
+      ANS += `&${Object.keys(object)[i]}=${NEW_STRING}`;
+    }
+  }
+
+  console.log(ANS.replace("&", "?"));
+  return ANS.replace("&", "?");
 }
 
 function solution(input) {
