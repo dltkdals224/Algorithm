@@ -12,7 +12,6 @@ function solution(pin) {
     answer = false;
   }
 
-  console.log(answer);
   return answer;
 }
 
@@ -36,7 +35,6 @@ const consecutiveNumber = (arr) => {
       (Number(arr[i]) - Number(arr[i + 1]) === -1 &&
         Number(arr[i + 1]) - Number(arr[i + 2]) === 9)
     ) {
-      console.log(arr);
       return true;
     }
   }

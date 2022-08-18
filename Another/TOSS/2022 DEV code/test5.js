@@ -20,7 +20,6 @@ function solution(text, keyword) {
     }
   }
 
-  console.log(html);
   return html;
 }
 

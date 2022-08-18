@@ -42,4 +42,4 @@ const object3 = {
 safelyGet(object2, "repository.readme.extension"); // -> undefined
 safelyGet(object2, "repository.readme"); // -> undefined
 safelyGet(object1, "repository"); // -> undefined
-safelyGet(object3, "repository.readme.extension"); // -> { readme: undefined }
+safelyGet(object3, "repository.readme.extension"); // -> md
