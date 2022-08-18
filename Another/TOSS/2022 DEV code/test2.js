@@ -2,7 +2,6 @@ function createQueryString(object) {
   const KEY_LENGTH = Object.keys(object).length;
   let ANS = "";
 
-  // console.log(KEY_LENGTH);
   if (KEY_LENGTH === 0) {
     return "";
   }
@@ -32,7 +31,6 @@ function createQueryString(object) {
     }
   }
 
-  console.log(ANS.replace("&", "?"));
   return ANS.replace("&", "?");
 }
 
