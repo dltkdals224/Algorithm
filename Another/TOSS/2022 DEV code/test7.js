@@ -1,5 +1,31 @@
 function solution(ids, days) {
-  const answer = [];
+  let answer = [];
+
+  const LENGTH = ids.length;
+  const obj = {};
+
+  for (let i = 0; i < LENGTH; i++) {
+    obj[ids[i]] = [];
+  }
+  for (let i = 0; i < LENGTH; i++) {
+    obj[ids[i]].push(days[i]);
+  }
+
+  const OBJ_LENGTH = Object.keys(obj).length;
+  for (let i = 0; i < OBJ_LENGTH; i++) {
+    obj[Object.keys(obj)[i]] = obj[Object.keys(obj)[i]].filter(
+      (element, index) => {
+        return obj[Object.keys(obj)[i]].indexOf(element) === index;
+      }
+    );
+  }
+
+  for (let i = 0; i < OBJ_LENGTH; i++) {
+    if (obj[Object.keys(obj)[i]].length >= 3) {
+      answer.push(Number(Object.keys(obj)[i]));
+    }
+  }
+
   return answer;
 }
 
@@ -10,3 +36,19 @@ solution(
   ["월", "목", "월", "수", "일", "화", "금"]
 );
 // 결과 : [1]
+
+solution(
+  // ids
+  [1, 1, 1, 2, 2, 2, 3, 3, 3],
+  // days
+  ["월", "목", "월", "월", "목", "월", "월", "목", "월"]
+);
+// 결과 : 당첨자 없음
+
+solution(
+  // ids
+  [1, 1, 1, 2, 2, 2, 3, 3, 3],
+  // days
+  ["월", "화", "수", "월", "화", "수", "월", "화", "수"]
+);
+// 결과 : [1, 2, 3]
