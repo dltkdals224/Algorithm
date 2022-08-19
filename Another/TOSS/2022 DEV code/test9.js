@@ -1,5 +1,6 @@
 function getStylesOf(element, styles) {
   /* 작성해주세요 */
+  // 문제의 일부가 유실되어 풀이 진행 불가능.
 
   return {};
 }

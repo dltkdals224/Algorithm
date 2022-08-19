@@ -12,6 +12,7 @@ function solution(text, keyword) {
       TARGET_KEYWORD = keyword.slice(0, i) + "," + keyword.slice(i);
     }
 
+    // 동적 인자에 대한 replace 처리 방법
     const regex = new RegExp(`${TARGET_KEYWORD}`);
 
     if (text.includes(TARGET_KEYWORD)) {
