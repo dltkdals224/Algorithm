@@ -4,6 +4,8 @@ function solution(ids, days) {
   const LENGTH = ids.length;
   const obj = {};
 
+  // 핵심
+  // 배열에 존재하는 인자 수 만큼의 key로 객체 생성 및 값 할당
   for (let i = 0; i < LENGTH; i++) {
     obj[ids[i]] = [];
   }
@@ -12,6 +14,9 @@ function solution(ids, days) {
   }
 
   const OBJ_LENGTH = Object.keys(obj).length;
+
+  // 핵심
+  // 배열 내 중복되는 인자 제거
   for (let i = 0; i < OBJ_LENGTH; i++) {
     obj[Object.keys(obj)[i]] = obj[Object.keys(obj)[i]].filter(
       (element, index) => {
