@@ -7,7 +7,6 @@ function solution(a, b) {
     answer += findWinner(a[i], b[i]);
   }
 
-  console.log(answer);
   return answer;
 }
 
