@@ -5,8 +5,8 @@ function solution(string, target) {
 
   let idx = 0;
   while (idx !== -1) {
-    string.indexOf(target, idx + 1) !== -1 &&
-      targetIndex.push(string.indexOf(target, idx + 1));
+    string.indexOf(target, idx) !== -1 &&
+      targetIndex.push(string.indexOf(target, idx));
     idx = string.indexOf(target, idx + 1);
   }
 
