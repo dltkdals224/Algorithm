@@ -2,7 +2,7 @@ const solution = (arr) => {
   let ans = [];
 
   for (let i = 1; i <= arr.length; i++) {
-    ans.push(getPermutations([0, 1, 7], i));
+    ans.push(getPermutations(arr, i));
   }
 
   console.log(ans.flat(1));
@@ -24,4 +24,4 @@ const getPermutations = (arr, selectNumber) => {
   return results;
 };
 
-solution([1, 2, 3, 4]);
+solution([0, 1, 7]);
