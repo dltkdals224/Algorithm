@@ -10,15 +10,17 @@ function dfs(startIndex, numbers, target) {
           return 0;
         }
       }
-      let num1 = num + numbers[index];
-      let num2 = num - numbers[index];
 
-      return dfsRecursive(num1, index + 1) + dfsRecursive(num2, index + 1);
+      // 가지치기 과정
+      // 좌항은 numbers의 값을 더하거나 뺀 값이고, 우항은 현 index
+      return (
+        dfsRecursive(num + numbers[index], index + 1) +
+        dfsRecursive(num - numbers[index], index + 1)
+      );
     })(0, startIndex)
   );
 }
 
-// queue를 class를 통해 구현할 수 있구나
 class Queue {
   constructor() {
     this.items = [];
@@ -28,6 +30,7 @@ class Queue {
   }
   dequeue() {
     return this.items.shift();
+    // O(n)복잡도 shift()연산의 사용을 가급적 지양.
   }
   isEmpty() {
     return this.items.length === 0;
@@ -71,7 +74,7 @@ function solution(numbers, target) {
   let answer = dfs(0, numbers, target);
 
   // BFS
-  //   let answer = bfs(0, numbers, ta/rget);
+  // let answer = bfs(0, numbers, target);
 
   return answer;
 }
