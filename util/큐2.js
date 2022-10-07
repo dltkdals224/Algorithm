@@ -1,17 +1,17 @@
 class Queue {
-  // 크기
+  // 큐 초기화
   constructor() {
     this.storage = {};
     this.front = 0;
-    this.reat = 0;
+    this.rear = 0;
   }
 
-  // 큐 초기화
+  // 크기
   size() {
-    if (this.storage[rear] === undefined) {
+    if (this.storage[this.rear] === undefined) {
       return 0;
     } else {
-      return (this.rear = this.front + 1);
+      return this.rear - this.rear + 1;
     }
   }
 
@@ -21,7 +21,7 @@ class Queue {
       this.storage["0"] = value;
     } else {
       this.rear += 1;
-      this.storage[this.reat] = value;
+      this.storage[this.rear] = value;
     }
   }
 
