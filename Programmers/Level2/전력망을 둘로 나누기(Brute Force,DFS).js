@@ -16,6 +16,7 @@ function solution(n, wires) {
   // 한개씩 제외해가며 dfs
   for (let i = 0; i < wires.length; i++) {
     const targetWire = [...wires].splice(i, 1).flat(1);
+    // 깊은 복사를 이루어야 함. (객체 내 배열)
     const cloneObj = JSON.parse(JSON.stringify(wiresTree));
 
     cloneObj[targetWire[0]].splice(
