@@ -1,3 +1,18 @@
+const solution = () => {
+  const testQueue = new Queue();
+
+  testQueue.add("A");
+  testQueue.add("B");
+  testQueue.add("C");
+
+  console.log(testQueue);
+  console.log(testQueue.getFront());
+
+  testQueue.popleft();
+  console.log(testQueue);
+  console.log(testQueue.getFront());
+  console.log(testQueue.getQueue());
+};
 class Queue {
   // 큐 초기화
   constructor() {
@@ -40,4 +55,25 @@ class Queue {
     }
     return tmp;
   }
+
+  // head를 반환하는 함수
+  getFront() {
+    return this.rear !== 0 && this.storage[this.front];
+  }
+
+  // 큐의 모든 원소를 배열로 반환
+  getQueue() {
+    if (!this.storage) {
+      return false;
+    }
+
+    const array = [];
+    for (let i = this.front; i <= this.rear; i++) {
+      array.push(this.storage[i]);
+    }
+
+    return array;
+  }
 }
+
+solution();
