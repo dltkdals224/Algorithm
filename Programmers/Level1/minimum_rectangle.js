@@ -20,6 +20,5 @@ function solution(sizes) {
   }
   ans = Math.max(...longSideTmp) * Math.max(...shortSideTmp);
 
-  console.log(ans);
   return ans;
 }

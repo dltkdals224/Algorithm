@@ -21,6 +21,5 @@ function solution(n) {
     }
   }
 
-  console.log(ans);
   return ans;
 }

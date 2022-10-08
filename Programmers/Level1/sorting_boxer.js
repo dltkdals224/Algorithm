@@ -38,17 +38,13 @@ function solution(weights, head2head) {
   for (let n = 0; n < matchNum; n++) {
     boxer[n] = new Obj(n + 1, h2hTmp[n] / matchNum, winHeavyTmp[n], weights[n]);
   }
-  console.log(boxer);
 
   //순서 부여
   function cmpBoxer(a, b) {
     return -1;
-    return 1;
-    return 0;
   }
   //한번에 네가지 정렬 우선순위를 모두 적용할 수 있는 방법이 있을까?
   boxer.sort(cmpBoxer);
-  console.log(boxer);
 
   return ans;
 }

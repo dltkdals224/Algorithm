@@ -80,7 +80,6 @@ function solution(answers) {
     }
   }
 
-  console.log(ans);
   return ans;
 }
 

@@ -15,7 +15,6 @@ const solution = (number, k) => {
       count++;
       // 만약 숫자를 빼야할만큼 뺐다면 완성된 값을 반환한다.
       if (count === k) {
-        console.log(stack.join("") + number.slice(i, number.length));
         return stack.join("") + number.slice(i, number.length);
       }
       // 스택이 비어있으면 루프를 멈추고 스택에 아이템을 추가한다.
@@ -27,7 +26,6 @@ const solution = (number, k) => {
     stack.push(item);
   }
 
-  // console.log(stack.join("").slice(0, number.length - k + count));
   return stack.join("").slice(0, number.length - k + count);
 };
 
