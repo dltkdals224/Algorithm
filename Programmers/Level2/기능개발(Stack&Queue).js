@@ -1,46 +1,40 @@
 // 2022.09.20
 function solution(progresses, speeds) {
   let answer = [];
+
   let dayRequired = [];
   progresses.map((progress, index) => {
     dayRequired.push(Math.ceil((100 - progress) / speeds[index]));
   });
 
-  let stack = 1;
-  let biggest = -1;
+  let stack = [];
+  let publishTarget = -1;
 
   for (let i = 0; i < dayRequired.length; i++) {
-    // 마지막 처리
     if (dayRequired[i + 1] === undefined) {
-      answer.push(stack);
+      answer.push(stack.length + 1);
     }
 
-    // stack 증가
-    if (dayRequired[i] >= dayRequired[i + 1]) {
-      if (stack === 1) {
-        biggest = dayRequired[i];
-      }
-
-      stack++;
-      continue;
+    if (stack.length === 0) {
+      publishTarget = dayRequired[i];
     }
 
-    // biggest check
-    if (dayRequired[i + 1] <= biggest) {
-      stack++;
-      continue;
-    }
-
-    // 배포 (stack 초기화 / biggest 초기화)
-    if (dayRequired[i] < dayRequired[i + 1]) {
-      answer.push(stack);
-      stack = 1;
-      biggest = -1;
+    if (dayRequired[i + 1] > publishTarget) {
+      // 따로 배포
+      answer.push(stack.length + 1);
+      publishTarget = -1;
+      stack = [];
+    } else {
+      // 같이 배포
+      stack.push(dayRequired[i]);
     }
   }
 
   return answer;
 }
+
+solution([93, 30, 55], [1, 130, 5]);
+solution([95, 90, 99, 95, 80, 99], [1, 1, 1, 1, 1, 1]);
 
 // 다른 사람의 풀이
 // function solution(progresses, speeds) {

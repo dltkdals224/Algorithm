@@ -1,11 +1,10 @@
 // 2022.09.20
-// permutation을 구성하는 부분이 난이도가 높음.
 function solution(numbers) {
   let answer = 0;
   let cardArray = numbers.split("");
   let permutation = [];
 
-  // 조합 생성
+  // numbers에 대해 순열 생성
   for (let i = 1; i < numbers.length + 1; i++) {
     permutation.push(getPermutations(cardArray, i));
   }

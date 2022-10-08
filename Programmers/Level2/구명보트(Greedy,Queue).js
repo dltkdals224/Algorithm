@@ -24,11 +24,13 @@ function solution(people, limit) {
 
     // main logic
     if (people[forwardIndex] + people[reverseIndex] <= limit) {
+      // 둘이 탈 수 있나?
       forwardIndex++;
       reverseIndex--;
 
       count++;
     } else {
+      // 그렇지 못한 경우라면 돼지는 혼자 타야해.
       reverseIndex--;
 
       count++;
@@ -38,13 +40,11 @@ function solution(people, limit) {
   return count;
 }
 
-solution([70, 50, 80, 50], 100); // 3
-solution([70, 80, 50], 100); // 3
-
 // 후기
 
 // push(),pop()연산의 시간복잡도는 O(1)이지만,
 // shift()연산의 시간복잡도는 O(n)을 갖는다.
-
 // 따라서 JS에서 Queue를 구현하기 위해서는 직접 구현해야 한다.
-// (N이 1000이하의 수라면 shift()연산을 사용해도 문제 없을 것이라고 함.)
+// (N이 1000이하의 수라면 shift()연산을 사용해도 문제 없음.)
+
+// 최대 인원이 둘로 정해져있어서 어렵지 않은 문제.

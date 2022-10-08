@@ -30,7 +30,7 @@ class Queue {
   }
   dequeue() {
     return this.items.shift();
-    // O(n)복잡도 shift()연산의 사용을 가급적 지양.
+    // target number 1000이하라 shift()사용 선호.
   }
   isEmpty() {
     return this.items.length === 0;
@@ -57,7 +57,6 @@ function bfs(startIndex, numbers, target) {
       index++;
       queue.enqueue(newList);
     } else {
-      console.log(list, queue);
       for (let num of list) {
         if (num === target) {
           answer++;

@@ -13,6 +13,8 @@ const solution = () => {
   console.log(testQueue.getFront());
   console.log(testQueue.getQueue());
 };
+
+// target의 순회 수가 1000 이하라면 그냥 '배열 + shift()'로 queue만들어 사용하는게 유리
 class Queue {
   // 큐 초기화
   constructor() {
@@ -26,7 +28,7 @@ class Queue {
     if (this.storage[this.rear] === undefined) {
       return 0;
     } else {
-      return this.rear - this.rear + 1;
+      return this.rear - this.front + 1;
     }
   }
 

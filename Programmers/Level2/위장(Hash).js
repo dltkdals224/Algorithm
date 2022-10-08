@@ -6,6 +6,7 @@ function solution(clothes) {
   for (let i = 0; i < clothes.length; i++) {
     let type = clothes[i][1];
 
+    // 없던 type이면 0, 값이 존재하면 +1
     map.set(type, (map.get(type) || 0) + 1);
   }
 

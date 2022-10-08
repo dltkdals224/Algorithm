@@ -1,41 +1,36 @@
 // 2022.10.02
 function solution(bridge_length, weight, truck_weights) {
-  let time = 0;
+  let secondsSpent = 0;
   let targetTruckIndex = 0;
 
   const BRIDGE_STATUS = new Queue();
 
-  while (1) {
-    time++;
+  while (BRIDGE_STATUS.size() !== 0 || secondsSpent === 0) {
+    secondsSpent++;
 
-    // 다리에서 트럭 나옴
+    // 다리에서 트럭 빠져나옴
     if (
-      time >=
-      BRIDGE_STATUS.storage[BRIDGE_STATUS.front]?.time + bridge_length
+      secondsSpent >=
+      BRIDGE_STATUS.storage[BRIDGE_STATUS.front]?.secondsSpent + bridge_length
     ) {
       BRIDGE_STATUS.popleft();
     }
 
-    // 다리에 트럭 추가
+    // 다리에 트럭 진입
     if (
       BRIDGE_STATUS.size() < bridge_length &&
       BRIDGE_STATUS.sum() + truck_weights[targetTruckIndex] <= weight
     ) {
       BRIDGE_STATUS.add({
         weight: truck_weights[targetTruckIndex],
-        time: time,
+        secondsSpent: secondsSpent,
       });
       targetTruckIndex++;
     } else {
     }
-
-    // 트럭 모두 이동완료
-    if (BRIDGE_STATUS.size() === 0) {
-      break;
-    }
   }
 
-  return time;
+  return secondsSpent;
 }
 
 class Queue {
@@ -51,7 +46,7 @@ class Queue {
     if (this.storage[this.rear] === undefined) {
       return 0;
     } else {
-      return this.rear - this.rear + 1;
+      return this.rear - this.front + 1;
     }
   }
 
