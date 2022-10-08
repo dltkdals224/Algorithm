@@ -11,13 +11,12 @@ function solution(lottos, win_nums) {
     if (lottos[n] == 0) tmp++;
   }
   correct_nums = lottos.filter((x) => win_nums.includes(x)).length;
-  console.log(correct_nums);
 
   high_rank = 7 - (correct_nums + tmp);
   if (high_rank == 7) high_rank = 6;
   low_rank = 7 - correct_nums;
   if (low_rank == 7) low_rank = 6;
   ans = [high_rank, low_rank];
-  console.log(ans);
+
   return ans;
 }

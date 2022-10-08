@@ -9,7 +9,6 @@ function solution(board) {
     }).index;
   });
 
-  console.log(ans);
   return ans;
 }
 

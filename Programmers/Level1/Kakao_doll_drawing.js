@@ -21,7 +21,6 @@ function solution(board, moves) {
 
   //함수 호출 후 집기과정.
   for (let n = 0; n < moves.length; n++) catchItem(moves[n]);
-  // console.log(basket);
 
   //팡!
   for (let n = 0; n < basket.length; n++) {
@@ -33,7 +32,6 @@ function solution(board, moves) {
     } else continue;
   }
 
-  // console.log(ans);
   return ans;
 }
 

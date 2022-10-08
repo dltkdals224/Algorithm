@@ -66,7 +66,6 @@ function solution(n, lost, reserve) {
     if (student[t].suit == 1) ans++;
   }
 
-  // console.log(student);
   return ans;
 }
 
