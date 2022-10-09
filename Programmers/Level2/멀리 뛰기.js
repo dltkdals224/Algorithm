@@ -1,23 +1,16 @@
+// 2022.10.9
 function solution(n) {
-  let ans = 0;
+  let ans = [1, 1];
 
-  (dfsRecursion = (cumulativeSum, plus) => {
-    cumulativeSum += plus;
-    if (cumulativeSum > n) {
-      return;
-    }
-    if (cumulativeSum === n) {
-      ans++;
-      return;
-    }
+  if (n <= 1) {
+    return ans[n];
+  }
 
-    dfsRecursion(cumulativeSum, 1);
-    dfsRecursion(cumulativeSum, 2);
-  })(0, 0);
+  for (let i = 2; i < n + 1; i++) {
+    ans.push((ans[i - 2] + ans[i - 1]) % 1234567);
+  }
 
-  return ans;
+  return ans[n];
 }
 
-solution(5); // 8
-solution(4); // 5
-solution(3); // 3
+// 2xN 타일링 문제와 마찬가지로 '피보나치의 둔갑'유형
