@@ -17,8 +17,9 @@ const byMAP = (arr1, arr2) => {
       TARGET_MAP2.get(target) ?? 0
     );
   }
+  let union = arr1.length + arr2.length - intersection;
 
-  console.log(intersection, arr1.length + arr2.length - intersection);
+  console.log(intersection, union);
 };
 
 // SET
