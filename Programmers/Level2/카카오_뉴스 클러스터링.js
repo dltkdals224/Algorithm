@@ -1,6 +1,6 @@
 // 2022.12.30
 function solution(str1, str2) {
-  // 대문자 통일.
+  // 대문자 통일
   const TARGET_STR1 = str1.toUpperCase();
   const TARGET_STR2 = str2.toUpperCase();
 
@@ -64,6 +64,36 @@ solution("BAAAA", "AAA"); // 32768
 solution("abdddd", "dddefggg"); // 13107
 solution("abab", "baba"); // 32768
 
+// 다른 사람의 풀이
+
+// function solution (str1, str2) {
+
+//   function explode(text) {
+//     const result = [];
+//     for (let i = 0; i < text.length - 1; i++) {
+//       const node = text.substr(i, 2);
+//       if (node.match(/[A-Za-z]{2}/)) {
+//         result.push(node.toLowerCase());
+//       }
+//     }
+//     return result;
+//   }
+
+//   const arr1 = explode(str1);
+//   const arr2 = explode(str2);
+//   const set = new Set([...arr1, ...arr2]);
+//   let union = 0;
+//   let intersection = 0;
+
+//   set.forEach(item => {
+//     const has1 = arr1.filter(x => x === item).length;
+//     const has2 = arr2.filter(x => x === item).length;
+//     union += Math.max(has1, has2);
+//     intersection += Math.min(has1, has2);
+//   })
+//   return union === 0 ? 65536 : Math.floor(intersection / union * 65536);
+// }
+
 // Map으로 푼 속도
 // 테스트 1 〉	통과 (0.40ms, 33.4MB)
 // 테스트 2 〉	통과 (0.42ms, 33.5MB)
@@ -78,3 +108,18 @@ solution("abab", "baba"); // 32768
 // 테스트 11 〉	통과 (0.48ms, 33.6MB)
 // 테스트 12 〉	통과 (0.25ms, 33.5MB)
 // 테스트 13 〉	통과 (0.37ms, 33.6MB)
+
+// 다른 사람의 풀이 속도
+// 테스트 1 〉	통과 (0.28ms, 33.6MB)
+// 테스트 2 〉	통과 (0.29ms, 33.7MB)
+// 테스트 3 〉	통과 (0.26ms, 33.5MB)
+// 테스트 4 〉	통과 (5.50ms, 36MB)
+// 테스트 5 〉	통과 (0.34ms, 33.5MB)
+// 테스트 6 〉	통과 (0.22ms, 33.5MB)
+// 테스트 7 〉	통과 (0.77ms, 33.6MB)
+// 테스트 8 〉	통과 (0.29ms, 33.5MB)
+// 테스트 9 〉	통과 (0.77ms, 33.5MB)
+// 테스트 10 〉	통과 (0.86ms, 33.7MB)
+// 테스트 11 〉	통과 (3.01ms, 33.8MB)
+// 테스트 12 〉	통과 (0.21ms, 33.6MB)
+// 테스트 13 〉	통과 (0.39ms, 33.6MB)
