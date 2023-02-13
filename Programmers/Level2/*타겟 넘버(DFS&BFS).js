@@ -39,12 +39,13 @@ class Queue {
 
 function bfs(startIndex, numbers, target) {
   const queue = new Queue();
-  queue.enqueue([numbers[startIndex], -numbers[startIndex]]);
+  queue.enqueue([numbers[startIndex], -numbers[startIndex]]); // queue의 연산 적용 대상을 배열처리 해서 삽입하는 아이디어.
   let index = startIndex + 1;
   let answer = 0;
 
   while (!queue.isEmpty()) {
     let list = queue.dequeue();
+    // 1st : list = [1, -1]
 
     if (index !== numbers.length) {
       let newList = [];
@@ -52,17 +53,21 @@ function bfs(startIndex, numbers, target) {
       for (let num of list) {
         newList.push(num + numbers[index]);
         newList.push(num - numbers[index]);
+        // [1 + 1, 1 - 1, -1 + 1, -1 - 1]
       }
 
       index++;
       queue.enqueue(newList);
-    } else {
+    }
+    if (index === numbers.length) {
       for (let num of list) {
         if (num === target) {
           answer++;
         }
       }
     }
+
+    //
   }
 
   return answer;
@@ -70,13 +75,15 @@ function bfs(startIndex, numbers, target) {
 
 function solution(numbers, target) {
   // DFS
-  let answer = dfs(0, numbers, target);
+  let answer1 = dfs(0, numbers, target);
 
   // BFS
-  // let answer = bfs(0, numbers, target);
+  let answer2 = bfs(0, numbers, target);
 
-  return answer;
+  console.log(answer1, answer2);
+
+  // return answer;
 }
 
-console.log(solution([1, 1, 1, 1, 1], 3));
-console.log(solution([4, 1, 2, 1], 4));
+solution([1, 1, 1, 1, 1], 3);
+// console.log(solution([4, 1, 2, 1], 4));
