@@ -25,3 +25,6 @@ const evaluateTree = function (root) {
       return null;
   }
 };
+
+// [2, 1, 3, null, null, 0, 1]
+// true
