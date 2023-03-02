@@ -13,14 +13,15 @@
  */
 var deepestLeavesSum = function (root) {
   const QUEUE = [root];
+  let ans, qlen, curr;
 
   while (QUEUE.length) {
-    let ans = 0,
-      curr;
+    ans = 0;
+    qlen = QUEUE.length;
 
     // 반복문 두 개를 통해 QUEUE에 값을 채워나가며 BFS로 전개.
     // ...1
-    for (let i = 0; i < QUEUE.length; i++) {
+    for (let i = 0; i < qlen; i++) {
       curr = QUEUE.shift();
       ans += curr.val;
 
