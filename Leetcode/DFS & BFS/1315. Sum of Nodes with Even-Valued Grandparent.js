@@ -22,6 +22,7 @@ var sumEvenGrandparent = function (root) {
     for (let i = 0; i < qlen; i++) {
       curr = QUEUE.shift();
 
+      // GrandParents 탐색
       if (curr.val % 2 === 0) {
         if (curr.left) {
           if (curr.left.left) {
@@ -41,6 +42,7 @@ var sumEvenGrandparent = function (root) {
         }
       }
 
+      // QUEUE 전개
       if (curr.left) {
         QUEUE.push(curr.left);
       }
