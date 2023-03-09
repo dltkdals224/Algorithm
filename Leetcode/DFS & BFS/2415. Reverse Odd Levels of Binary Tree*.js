@@ -15,6 +15,7 @@ var reverseOddLevels = function (root) {
   let queue = [root];
   let level = 0;
 
+  // qlen을 따로 안만드는 이 구조가 더 나은 듯?
   while (queue.length) {
     const next = [];
 
