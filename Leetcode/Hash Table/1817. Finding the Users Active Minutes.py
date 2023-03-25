@@ -1,3 +1,4 @@
+# 2023.03.24
 class Solution(object):
     def findingUsersActiveMinutes(self, logs, k):
         ansArr = [0] * k
