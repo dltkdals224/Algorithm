@@ -1,0 +1,171 @@
+# 파이썬 잡기술
+
+## 숫자형
+
+<br/>
+
+## 문자열 자료형
+
+### split과 join의 차이
+
+```python
+string = 'outer.inner'
+
+splited_string = string.split('.')
+print(splited_string)  # ['outer', 'inner']
+
+# join의 형식이 js와 다름
+joined_string = ('!').join(splited_string)
+print(joined_string)  # outer!inner
+```
+
+<br/>
+
+### 문자열 연결
+
+```python
+string1 = "hello"
+string2 = "world"
+
+# f함수 사용하는게 깔끔함.
+result = f"{string1} {string2}"
+print(result) # "hello world"
+```
+
+<br/>
+
+### 문자열(이터러블) 뒤집기
+
+```python
+string = 'abcde'
+array = ['e','f','g','h','i']
+
+# slice notation은 [start:end:step]과 같은 형태로 사용
+print(string[::-1])  # edcba
+print(array[::-1])  # ['i', 'h', 'g', 'f', 'e']
+```
+
+## 리스트 자료형
+
+### key를 통한 정렬
+
+```python
+target = ['apple', 'banana', 'cherry', 'date']
+
+target.sort(key=len)
+print(target)  # ['date', 'apple', 'banana', 'cherry']
+
+target.sort(key=len,reverse=True)
+print(target)  # ['banana', 'cherry', 'apple', 'date']
+```
+
+<br/>
+
+### sort와 sorted
+
+```python
+## sort
+array = ['e','f','g','h','i']
+
+# .sort()는 리스트의 전유물.
+# sort()자체의 리턴값은 존재하지 않음.
+print(array.sort(reverse=True))  # None
+print(array)  # ['i', 'h', 'g', 'f', 'e']
+
+
+## sorted
+string = 'abcde'
+dic = {'a':1,'b':3,'c':2}
+
+# sorted는 모든 이터러블 객체를 대상으로 사용가능.
+# 리스트 형태로 리턴함.
+print(sorted(string))  # ['a', 'b', 'c', 'd', 'e']
+print(sorted(dic,key = lambda target:dic[target]))  # ['a', 'c', 'b']
+```
+
+<br/>
+
+## 튜플 자료형
+
+<br/>
+
+## 딕셔너리 자료형
+
+### defaultdict
+
+값 있으면 더하고, 없으면 삽입하는 로직을 if문으로 길게 작성하지 않아도 됨.
+
+```python
+from collections import defaultdict
+
+dic = defaultdict(int)
+for string in ['a','b','b','c']:
+    dic[string] += 1
+
+print(dic)  # defaultdict(<class 'int'>, {'a': 1, 'b': 2, 'c': 1})
+```
+
+<br/>
+
+## 집합 자료형
+
+<br/>
+
+## 불 자료형
+
+<br/>
+
+## 제어문
+
+### for(let i ; i < number ; i++){}
+
+이터러블 객체 아닌 단순 int 순회
+
+```python
+# range()와 len() 섞어서 같이 사용
+for num in range(len(split_url)):
+```
+
+<br/>
+
+### 삼항 연산자
+
+어쩔 수 없이 써야만 하는 구간이 있음.
+
+```python
+ans = []
+dic = {1:True, 4:True}
+iter = [0,1,2,3,4]
+
+for target in iter:
+    ans.append(target) if target in dic else False
+
+print(ans)  # [1, 4]
+```
+
+<br/>
+
+## 클래스
+
+기본적으로 다음과 같은 형태로 동작한다.
+
+```python
+class Solution(object):
+    def __init__(self, string):
+        self.dic = {}
+
+    def add(self):
+        self.dic['a'] = 1
+
+    def printf(self):
+        print(self.dic)
+
+sol = Solution(['1','2','3'])
+sol.add()
+sol.printf()  # {'a': 1}
+```
+
+\_\_init\_\_은 JavaScript의 constructor와 비슷하게 동작하고, <br/>
+self는 JavaScript의 this와 비슷하게 동작한다.
+
+<br/>
