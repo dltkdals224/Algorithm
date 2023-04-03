@@ -47,6 +47,29 @@ print(array[::-1])  # ['i', 'h', 'g', 'f', 'e']
 
 ## 리스트 자료형
 
+### 리스트 초기화
+
+```python
+length = 5
+
+matrix_1_1 = [0] * length
+print(matrix_1_1) # [0, 0, 0, 0, 0]
+matrix_1_2 = [i for i in range(length)]
+print(matrix_1_2)  # [0, 1, 2, 3, 4]
+
+matrix_2 = [[0] * length for _ in range(length)]
+print(matrix_2)
+# [
+#   [0, 0, 0, 0, 0],
+#   [0, 0, 0, 0, 0],
+#   [0, 0, 0, 0, 0],
+#   [0, 0, 0, 0, 0],
+#   [0, 0, 0, 0, 0]
+# ]
+```
+
+<br/>
+
 ### key를 통한 정렬
 
 ```python
@@ -103,6 +126,14 @@ for string in ['a','b','b','c']:
     dic[string] += 1
 
 print(dic)  # defaultdict(<class 'int'>, {'a': 1, 'b': 2, 'c': 1})
+```
+
+<br/>
+
+### dict 내부에 dict
+
+```python
+
 ```
 
 <br/>
