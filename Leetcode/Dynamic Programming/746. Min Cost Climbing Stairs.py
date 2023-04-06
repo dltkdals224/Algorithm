@@ -13,6 +13,6 @@ class Solution(object):
         
         return memo[len(cost)]
         
-sol = Solution()
-sol.minCostClimbingStairs([10, 15, 20])
-sol.minCostClimbingStairs([1,100,1,1,1,100,1,1,100,1])
+# sol = Solution()
+# sol.minCostClimbingStairs([10, 15, 20])
+# sol.minCostClimbingStairs([1,100,1,1,1,100,1,1,100,1])
