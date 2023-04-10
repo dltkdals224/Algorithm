@@ -138,6 +138,30 @@ print(dic)  # defaultdict(<class 'int'>, {'a': 1, 'b': 2, 'c': 1})
 
 <br/>
 
+### 딕셔너리 순회 중 값 추가
+
+```python
+dic = { 'a': -1, 'b': -1, 'c': -1}
+
+for target in dic:
+    if target == 'c':
+        # 순회 중 값 추가 불가능
+        dic['d'] = -1 # RuntimeError
+```
+
+```python
+dic = { 'a': -1, 'b': -1, 'c': -1}
+
+# 순회하는 딕셔너리를 리스트로 바꿔서 해결.
+for target in list(dic):
+    if target == 'c':
+        dic['d'] = -1
+
+print(dic) # {'a': -1, 'b': -1, 'c': -1, 'd': -1}
+```
+
+<br/>
+
 ## 집합 자료형
 
 <br/>
