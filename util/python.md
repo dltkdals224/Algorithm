@@ -4,6 +4,8 @@
 
 <br/>
 
+---
+
 ## 문자열 자료형
 
 ### split과 join의 차이
@@ -44,6 +46,10 @@ array = ['e','f','g','h','i']
 print(string[::-1])  # edcba
 print(array[::-1])  # ['i', 'h', 'g', 'f', 'e']
 ```
+
+<br/>
+
+---
 
 ## 리스트 자료형
 
@@ -108,9 +114,13 @@ print(sorted(dic,key = lambda target:dic[target]))  # ['a', 'c', 'b']
 
 <br/>
 
+---
+
 ## 튜플 자료형
 
 <br/>
+
+---
 
 ## 딕셔너리 자료형
 
@@ -162,17 +172,23 @@ print(dic) # {'a': -1, 'b': -1, 'c': -1, 'd': -1}
 
 <br/>
 
+---
+
 ## 집합 자료형
 
 <br/>
+
+---
 
 ## 불 자료형
 
 <br/>
 
+---
+
 ## 제어문
 
-### for(let i ; i < number ; i++){}
+### for(let i ; i < number ; i++){ }
 
 이터러블 객체 아닌 단순 int 순회
 
@@ -200,6 +216,8 @@ print(ans)  # [1, 4]
 
 <br/>
 
+---
+
 ## 클래스
 
 기본적으로 다음과 같은 형태로 동작한다.
@@ -222,5 +240,33 @@ sol.printf()  # {'a': 1}
 
 \_\_init\_\_은 JavaScript의 constructor와 비슷하게 동작하고, <br/>
 self는 JavaScript의 this와 비슷하게 동작한다.
+
+<br/>
+
+---
+
+## 기타
+
+### permutation & combination 과 math.perm & math.comb
+
+```python
+from itertools import permutations
+from itertools import combinations
+
+p = permutations('ABC')
+print(list(p))  # [('A', 'B', 'C'), ('A', 'C', 'B'), ('B', 'A', 'C'), ('B', 'C', 'A'), ('C', 'A', 'B'), ('C', 'B', 'A')]
+
+c = combinations('ABC', 2)
+print(list(c))  # [('A', 'B'), ('A', 'C'), ('B', 'C')]
+
+## 단순히 값에 대한 연산이 필요할 때는 math 모듈을 사용한다.
+import math
+
+p_v = math.perm(3, 2)
+print(p_v)  # 6
+
+c_v = math.comb(3, 2)
+print(c_v)  # 3
+```
 
 <br/>
