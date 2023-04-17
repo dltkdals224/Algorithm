@@ -24,3 +24,21 @@ class Solution:
 
     def lcaDeepestLeaves(self, root):
         return self.dfs(root)
+
+# 일단 이게 이해 더 잘 되긴 할 듯
+class Solution2:
+    def lcaDeepestLeaves(self, root):
+        def dfs(node = root, depth = 0):
+            if not node:
+                return depth-1
+            
+            l = dfs(node.left, depth + 1)
+            r = dfs(node.right, depth + 1)
+
+            if l == r:
+                d[l] = node
+                
+            return max(l,r)
+        
+        d = {}
+        return d[dfs()]
