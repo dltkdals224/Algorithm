@@ -5,10 +5,10 @@ class Solution(object):
         shortest_path_length = -1
         row = len(grid)
         col = len(grid[0])
+        visited = [[False] * col for _ in range(row)]
 
         if grid[0][0] != 0 or grid[row-1][col-1] != 0:
             return -1
-        visited = [[False] * col for _ in range(row)]
 
         delta = [(1,0),(-1,0),(0,1),(0,-1),(1,1),(1,-1),(-1,1),(-1,-1)]
         queue = deque()
@@ -18,10 +18,13 @@ class Solution(object):
 
         while queue:
             cur_row, cur_col, cur_dis = queue.popleft()
+
+            # 마지막 idx 도착
             if cur_row == row - 1 and cur_col == col - 1:
                 shortest_path_length = cur_dis
                 break
 
+            # 문제 풀이 핵심
             for delta_row, delta_col in delta:
                 next_row = cur_row + delta_row
                 next_col = cur_col + delta_col
@@ -34,5 +37,7 @@ class Solution(object):
 
 sol = Solution()
 sol.shortestPathBinaryMatrix([[0,1],[1,0]])  # 2
+print('-----')
 sol.shortestPathBinaryMatrix([[0,0,0],[1,1,0],[1,1,0]])  # 4
+print('-----')
 sol.shortestPathBinaryMatrix([[0,1,1,1],[0,0,1,1],[0,1,1,1],[1,0,0,0]])  # 6
