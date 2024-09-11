@@ -16,7 +16,7 @@ class Solution(object):
 ## 다른 풀이 (by BFS)
 from collections import deque
 
-class Solution(object):
+class Solution2(object):
     def canVisitAllRooms(self, rooms):
         visited = [False] * len(rooms)
 
@@ -34,6 +34,6 @@ class Solution(object):
 
         return all(visited)
 
-# sol = Solution()
+# sol = Solution2()
 # sol.canVisitAllRooms([[1],[2],[3],[]])
 # sol.canVisitAllRooms([[1,3],[3,0,1],[2],[0]])
