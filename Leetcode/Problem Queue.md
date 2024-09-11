@@ -12,6 +12,7 @@
 | Programmers |                 전화번호 목록                  |   Hash Table   | 2023.04.06  |     1     |
 |  Leet Code  |  1277. Count Square Submatrices with All Ones  |       DP       | 2023.04.09  |     1     |
 | Programmers |                   미로 탈출                    |     Graph      | 2023.04.13  |     1     |
+|  Leet Code  |            695. Max Area of Island             |     Graph      | 2023.04.20  |     1     |
 
 <br/>
 

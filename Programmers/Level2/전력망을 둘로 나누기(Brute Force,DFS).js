@@ -12,6 +12,7 @@ function solution(n, wires) {
     wiresTree[wires[i][0]].push(wires[i][1]);
     wiresTree[wires[i][1]].push(wires[i][0]);
   }
+  console.log(wiresTree);
 
   // 한개씩 제외해가며 dfs
   for (let i = 0; i < wires.length; i++) {
@@ -60,3 +61,14 @@ const dfs = (obj, target) => {
 
   return count;
 };
+
+solution(9, [
+  [1, 3],
+  [2, 3],
+  [3, 4],
+  [4, 5],
+  [4, 6],
+  [4, 7],
+  [7, 8],
+  [7, 9],
+]);

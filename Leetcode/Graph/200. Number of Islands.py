@@ -15,17 +15,20 @@ class Solution(object):
             dy = [0, 0, -1, 1]
 
             visited[x][y] = True
+            
             queue = deque()
             queue.append((x,y))
             while queue:
                 cur_x, cur_y = queue.popleft()
+
+                # 문제 풀이 핵심
                 for i in range(4):
                     next_x = cur_x + dx[i]
                     next_y = cur_y + dy[i]
                     if next_x >= 0 and next_x < row and next_y >= 0 and next_y < col:
                         if grid[next_x][next_y] == '1' and not visited[next_x][next_y]:
                             visited[next_x][next_y] = True
-                            queue.append((next_x,next_y))            
+                            queue.append((next_x,next_y))
         
         for x in range(row):
             for y in range(col):

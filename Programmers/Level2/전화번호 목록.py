@@ -11,5 +11,5 @@ def solution(phone_book):
             
     return True
     
-# solution(["123","456","789"])
+solution(["123", "456", "789"])
 # solution(["119", "97674223", "1195524421"])  # false

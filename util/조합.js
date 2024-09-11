@@ -12,7 +12,7 @@ const getCombinations = function (arr, selectNumber) {
   return results; // 결과가 담긴 results를 return
 };
 
-const arr = [1, 1, 2, 2];
-const result = getCombinations(arr, 0);
+const arr = [1, 2, 3];
+const result = getCombinations(arr, 2);
 
 console.log(result);
