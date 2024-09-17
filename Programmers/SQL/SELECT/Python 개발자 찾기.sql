@@ -1,0 +1,7 @@
+-- 2024.09.17
+SELECT ID, EMAIL, FIRST_NAME, LAST_NAME
+FROM DEVELOPER_INFOS
+WHERE 'Python' IN (SKILL_1, SKILL_2, SKILL_3)
+ORDER BY ID
+
+-- 'A IN B'형태의 구문에서 컬럼은 A자리에만 위치해야 하는 것이 아님을 알 수 있음

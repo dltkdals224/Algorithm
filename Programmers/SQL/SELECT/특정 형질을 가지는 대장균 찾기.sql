@@ -1,0 +1,8 @@
+-- 2024.09.17
+SELECT COUNT(*) AS COUNT
+FROM ECOLI_DATA
+WHERE
+GENOTYPE & 2 = 0 AND
+(GENOTYPE & 4 = 4 OR GENOTYPE & 1 = 1)
+
+-- 비트 연산의 기초. (비트 연산자(=BIN)를 사용하진 않음)
