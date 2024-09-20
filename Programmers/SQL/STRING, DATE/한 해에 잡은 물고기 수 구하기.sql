@@ -1,0 +1,6 @@
+-- 2024.09.20
+SELECT COUNT(*) AS FISH_COUNT
+FROM FISH_INFO
+WHERE YEAR(TIME) = 2021
+
+-- TIME Column의 Type이 'DATE'임에 주의. (LIKE로 접근할 수 없음)
