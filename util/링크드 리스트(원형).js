@@ -1,10 +1,10 @@
 const solution = () => {
   const linkedList = new LinkedList();
-  linkedList.insert("Seoul", "head"); //head->Seoul->head
-  linkedList.insert("Busan", "Seoul"); //head->Seoul->Busan->head
-  linkedList.insert("Daegu", "Seoul"); //head->Seoul->Daegu->Busan
-  linkedList.insert("Incheon", "Busan"); //head->Seoul->Daegu->Busan->Incheon
-  linkedList.remove("Busan");
+  linkedList.insert('Seoul', 'head'); //head->Seoul->head
+  linkedList.insert('Busan', 'Seoul'); //head->Seoul->Busan->head
+  linkedList.insert('Daegu', 'Seoul'); //head->Seoul->Daegu->Busan
+  linkedList.insert('Incheon', 'Busan'); //head->Seoul->Daegu->Busan->Incheon
+  linkedList.remove('Busan');
 
   console.log(linkedList);
 };
@@ -19,7 +19,7 @@ class Node {
 
 class LinkedList {
   constructor() {
-    this.head = new Node("head");
+    this.head = new Node('head');
     this.head.next = this.head;
   }
 
