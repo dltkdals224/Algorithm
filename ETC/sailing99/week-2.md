@@ -144,10 +144,27 @@ DAY 08
 ### 문제 
 
 DAY 09  
-
-<!-- 반복 이해: 🟢   -->
+[저울](https://www.acmicpc.net/problem/2437)
 
 ### 풀이
+
+```python
+import sys
+input = sys.stdin.readline
+
+n = int(input())
+array = list(map(int, input().split()))
+array.sort()
+
+target = 1
+
+for num in array:
+    if target < num:
+        break
+    target += num
+
+print(target)
+```
 
 <br/>
 
