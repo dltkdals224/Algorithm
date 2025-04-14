@@ -134,14 +134,26 @@ print(ans)
 ### 문제 
 
 DAY 08  
-
-<!-- 반복 이해: 🟢   -->
+[Climbing Stairs](https://leetcode.com/problems/climbing-stairs/description/)
 
 ### 풀이
 
+```python
+class Solution:
+    def climbStairs(self, n: int) -> int:
+        ans = [1] * n
+        if n < 2:
+            return 1
+        
+        for idx in range(2, n):
+            ans[idx] = ans[idx - 2] + ans[idx - 1]
+        
+        return ans[n - 2] + ans[n - 1]
+```
+
 <br/>
 
-### 문제 
+### 문제 .
 
 DAY 09  
 [저울](https://www.acmicpc.net/problem/2437)
