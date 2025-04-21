@@ -51,6 +51,48 @@
 
 ### Example
 
+> [타겟 넘버](https://school.programmers.co.kr/learn/courses/30/lessons/43165)
+(설명을 위해 따로 추가한 문제)
+
+반복 이해: 🟢  
+
+```python
+# DFS
+def solution(numbers, target):
+    def dfs(index, current_sum):
+        if index == len(numbers):
+            return 1 if current_sum == target else 0
+        
+        plus = dfs(index + 1, current_sum + numbers[index])
+        minus = dfs(index + 1, current_sum - numbers[index])
+        
+        return plus + minus
+
+    return dfs(0, 0)
+```
+
+```python
+# BFS
+from collections import deque
+
+def solution(numbers, target):
+    queue = deque([(0, 0)])  # 양방향 queue
+    count = 0
+
+    while queue:
+        index, current_sum = queue.popleft()
+        
+        if index == len(numbers):
+            if current_sum == target:
+                count += 1
+        else:
+            queue.append((index + 1, current_sum + numbers[index]))
+            queue.append((index + 1, current_sum - numbers[index]))
+
+    return count
+```
+
+
 > [DFS와 BFS](https://www.acmicpc.net/problem/1260)
 
 ```python
