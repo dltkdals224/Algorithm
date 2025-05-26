@@ -3,7 +3,7 @@
 DAY 01  
 ⚠️ [소수 구하기 (#1929)](https://www.acmicpc.net/problem/1929)
 
-반복 이해: 🟢  
+반복 이해: 🟢🟢  
 반복 풀이: 🔵
 
 ### 풀이
@@ -22,7 +22,7 @@ sieve = [True] * (N+1)  # !
 sieve[0] = sieve[1] = False 
 
 for i in range(2, int(N**0.5)+1):  # !
-    if sieve[i]:
+    if sieve[i]:  # !
         for j in range(i*i, N+1, i):  # !
             sieve[j] = False
 
@@ -31,17 +31,12 @@ for i in range(M, N+1):
         print(i)
 ```
 
-
-
-
 <br/>
 
 ### 문제 
 
 DAY 02  
 [피보나치 비스무리한 수열](https://www.acmicpc.net/problem/14495)
-
-반복 이해: 🟢  
 
 ### 풀이
 
