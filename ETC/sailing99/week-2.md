@@ -136,15 +136,35 @@ print(ans)
 DAY 10  
 [한국이 그리울 땐 서버에 접속하지](https://www.acmicpc.net/problem/9996)
 
+반복 이해: 🟢  
+
 ### 풀이
 
 ```python
+import sys
 
+input = sys.stdin.readline
+num = int(input())
+pattern = input().strip()
+fa, la = pattern.split('*')
+
+for _ in range(num):
+    word = input().strip()
+    if len(word) < len(fa) + len(la):
+        print('NE')
+    elif word.startswith(fa) and word.endswith(la):
+        print('DA')
+    else:
+        print('NE')
 ```
+
+- .startswith(), .endswith()의 사용성
+
+- .index(), .find()를 뒤쪽부터 조사 => .rindex(), rfind()
 
 <br/>
 
-### 문제 .
+### 문제
 
 DAY 11  
 [저울](https://www.acmicpc.net/problem/2437)
@@ -176,9 +196,26 @@ print(target)
 DAY 12  
 [병든 나이트](https://www.acmicpc.net/problem/1783)
 
-<!-- 반복 이해: 🟢   -->
-<!-- 반복 풀이: 🔵 -->
-
 ### 풀이
+
+```python
+import sys
+
+input = sys.stdin.readline
+N, M = map(int, input().split(' '))
+
+if N >= 3:
+    if M >= 7:
+        print(M-2)
+    else:
+        print(min(M,4))
+elif N == 2:
+    if M >= 7:
+        print(4)
+    else:
+        print((M+1)//2)
+else:
+    print(1)
+```
 
 <br/>
