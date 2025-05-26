@@ -22,7 +22,7 @@ right = max(snacks)
 result = 0
 
 # 이진 탐색 수행
-while left <= right:
+while left <= right:  # !
     mid = (left + right) // 2
 
     # 현재 길이(mid)로 몇 명에게 나눠줄 수 있는지 계산
@@ -39,7 +39,7 @@ while left <= right:
 print(result)
 ```
 
-이진 탐색(Binary Search)은 정렬된 데이터에서 효율적으로 값을 찾는 알고리즘.  
+이진 탐색(Binary Search)은 `정렬된 데이터에서 효율적으로 값을 찾는 알고리즘`.  
 다음은 이진 탐색을 적용해야 하는 문제의 주요 특징과 포인트.
 
 1.  정렬된 데이터에서의 탐색
@@ -83,15 +83,40 @@ M과 N이 모두 최대 10^6까지 가능하며, 과자의 길이도 최대 10^9
 ### 문제
 
 DAY 16  
-[포도주 시식](https://www.acmicpc.net/problem/2156)
+⚠️ [포도주 시식](https://www.acmicpc.net/problem/2156)
 
 <!-- 반복 이해: 🟢   -->
 <!-- 반복 풀이: 🔵 -->
 
 ### 풀이
 
-```python
+> AI
 
+```python
+import sys
+
+input = sys.stdin.readline
+
+n = int(input())
+wine = [0]  # 1-indexed로 맞추기 위한 더미
+for _ in range(n):
+    wine.append(int(input()))
+
+if n == 1:
+    print(wine[1])
+elif n == 2:
+    print(wine[1] + wine[2])
+else:
+    dp = [0] * (n+1)
+    dp[1] = wine[1]
+    dp[2] = wine[1] + wine[2]
+    for i in range(3, n+1):
+        dp[i] = max(
+            dp[i-1],
+            dp[i-2] + wine[i],
+            dp[i-3] + wine[i-1] + wine[i]
+        )
+    print(dp[n])
 ```
 
 <br/>
@@ -101,14 +126,23 @@ DAY 16
 DAY 17  
 [JadenCase 문자열 만들기](https://school.programmers.co.kr/learn/courses/30/lessons/12951)
 
-<!-- 반복 이해: 🟢   -->
-<!-- 반복 풀이: 🔵 -->
-
 ### 풀이
 
 ```python
+def solution(words):
+    arr = []
+    words = words.lower()
+    for word in words.split(' '):
+        if word:
+            word = word[0].upper() + word[1:]
+        arr.append(word)
 
+    return ' '.join(arr)
 ```
+
+- "공백문자가 연속해서 나올 수 있습니다."  
+=> 검증 방식에 대해 한번 생각해 볼 필요를 주는 부분
+
 
 <br/>
 
@@ -170,15 +204,25 @@ print(min_fuel)
 
 ### 문제
 
-DAY 19
-
-<!-- 반복 이해: 🟢   -->
-<!-- 반복 풀이: 🔵 -->
+DAY 19  
+[리그 오브 레전설(small)](https://www.acmicpc.net/problem/17271)
 
 ### 풀이
 
 ```python
+import math
+import sys
 
+input = sys.stdin.readline
+N, M = list(map(int, input().split()))
+count = N // M
+
+ans = 0
+for B_count in range(count + 1):
+    A_count = N - B_count * M
+    ans += math.factorial(A_count + B_count) // (math.factorial(A_count) * math.factorial(B_count))
+
+print(ans % 1000000007)
 ```
 
 <br/>
