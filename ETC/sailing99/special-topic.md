@@ -92,10 +92,56 @@ def solution(numbers, target):
     return count
 ```
 
+<br/>
 
 > [DFS와 BFS](https://www.acmicpc.net/problem/1260)
 
 ```python
+import sys
+from collections import deque
+
+def dfs(graph, node, visited=None):
+    if visited is None:
+        visited = set()
+
+    if node in visited:
+        return
+
+    visited.add(node)
+    graph['dfs'].append(node)
+
+    for neighbor in graph.get(node, []):
+        dfs(graph, neighbor, visited)
+
+def bfs(graph, start):
+    visited = []
+    queue = deque([start])
+    
+    while queue:
+        node = queue.popleft()
+        if node not in visited:
+            visited.append(node)
+            queue.extend([n for n in graph.get(node, []) if n not in visited])
+
+    graph['bfs'] = visited
+
+input = sys.stdin.readline
+[N, M, V] = list(map(int, input().split()))
+
+dic = {'dfs': [], 'bfs': []}
+for a in range(M):
+    [A, B] = list(map(int, input().split()))
+    dic.setdefault(A, []).append(B)
+    dic.setdefault(B, []).append(A)
+
+for key in dic:
+    dic[key].sort()
+
+dfs(dic, V, None)
+bfs(dic, V)
+
+print(' '.join(map(str, dic['dfs'])))
+print(' '.join(map(str, dic['bfs'])))
 ```
 
 <br/>
