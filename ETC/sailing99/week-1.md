@@ -3,8 +3,8 @@
 DAY 01  
 ⚠️ [소수 구하기 (#1929)](https://www.acmicpc.net/problem/1929)
 
-반복 이해: 🟢🟢  
-반복 풀이: 🔵
+<!-- 반복 이해: 🟢🟢 -->
+<!-- 반복 풀이: 🔵 -->
 
 ### 풀이
 
@@ -82,7 +82,7 @@ else:
 DAY 03  
 [바탕화면 정리](https://school.programmers.co.kr/learn/courses/30/lessons/161990?language=python3)
 
-반복 이해: 🟢  
+<!-- 반복 이해: 🟢 -->
 
 ### 풀이
 
@@ -152,8 +152,8 @@ def solution(wallpaper):
 DAY 04  
 ⚠️ [안전 영역](https://www.acmicpc.net/problem/2468)
 
-반복 이해: 🟢  
-반복 풀이: 🔵
+<!-- 반복 이해: 🟢 -->
+<!-- 반복 풀이: 🔵 -->
 
 ### 풀이
 
@@ -197,7 +197,7 @@ print(ans)
 DAY 05  
 [수열](https://www.acmicpc.net/problem/2559)
 
-반복 이해: 🟢  
+<!-- 반복 이해: 🟢 -->
 
 ### 풀이
 

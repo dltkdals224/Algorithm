@@ -3,7 +3,7 @@
 DAY 22  
 [신규 아이디 추천](https://school.programmers.co.kr/learn/courses/30/lessons/72410)
 
-<!-- 반복 이해: 🟢   -->
+<!-- 반복 이해: 🟢 -->
 <!-- 반복 풀이: 🔵 -->
 
 ### 풀이
@@ -31,6 +31,8 @@ def solution(new_id):
 
 - re 함수를 통한 문자열 필터링 구조
 
+> re.sub()
+
 <br/>
 
 ### 문제
@@ -38,7 +40,7 @@ def solution(new_id):
 DAY 23  
 [너구리 구구](https://www.acmicpc.net/problem/18126)
 
-<!-- 반복 이해: 🟢   -->
+<!-- 반복 이해: 🟢 -->
 <!-- 반복 풀이: 🔵 -->
 
 ### 풀이
@@ -55,7 +57,7 @@ DAY 23
 DAY 24  
 [강아지는 많을 수록 좋다](https://www.acmicpc.net/problem/27971)
 
-<!-- 반복 이해: 🟢   -->
+<!-- 반복 이해: 🟢 -->
 <!-- 반복 풀이: 🔵 -->
 
 ### 풀이
@@ -72,7 +74,7 @@ DAY 24
 DAY 25  
 [김밥천국의 계단](https://www.acmicpc.net/problem/28069)
 
-<!-- 반복 이해: 🟢   -->
+<!-- 반복 이해: 🟢 -->
 <!-- 반복 풀이: 🔵 -->
 
 ### 풀이

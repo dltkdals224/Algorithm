@@ -158,8 +158,6 @@ print(' '.join(map(str, dic['bfs'])))
 기본적으로 DFS는 props로 '전체 그래프, 현재 노드, 방문 노드'가 필요하고,  
 BFS는 '전체 그래프, 현재 노드'가 필요하다.
 
-<br/>
-
 - DFS, BFS 에서 dictionary 기반의 graph를 사용하는 구조
 
 ```python
@@ -228,8 +226,6 @@ for _ in range(T):
 활성화 영역(=답이 되는 영역)이 탐지되면 dfs 혹은 bfs를 통해 인접 활성화 영역을 모두 평탄화.  
 그리고 count를 증가시킴.
 
-<br/>
-
 - 방향 벡터를 통한 인접 영역 검사
 
 ```python
@@ -240,4 +236,9 @@ dx, dy가 한 세트로 구성되어 고정적 4중 for문을 순회하며 영�
 인접 좌표를 나타내는 (nx, ny)가 그래프 영역을 벗어나지 않고 활성화 영역이라면 비활성화 시키고 queue에 추가.
 
 <br/>
-<br/>
+
+### 추가 URL
+
+[완전탐색(DFS)을 잘 풀고 싶다면? - 'N과 M 시리즈'](https://cafe.naver.com/f-e/cafes/31258781/articles/1468?boardtype=L&menuid=29&referrerAllArticles=false)
+
+[DFS/BFS 가장 기본이 되는 문제 추천](https://cafe.naver.com/f-e/cafes/31258781/articles/3673?boardtype=L&menuid=29&referrerAllArticles=false)

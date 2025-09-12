@@ -31,7 +31,6 @@ def solution(maps):
                             queue.append((next_r, next_c, distance+1))
             
         return -1
-            
     
     start_idx = []
     lever_idx = []
@@ -45,7 +44,6 @@ def solution(maps):
                 lever_idx = (r,c)
             if maps[r][c] == 'E':
                 end_idx = (r,c)
-        
             
     time_1 = calc_time(maps, start_idx, lever_idx)
     time_2 = calc_time(maps, lever_idx, end_idx)
