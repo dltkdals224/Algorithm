@@ -1,0 +1,10 @@
+SELECT
+  P.ID,
+  COUNT(C.ID) AS CHILD_COUNT
+FROM ECOLI_DATA AS P
+LEFT JOIN ECOLI_DATA AS C  -- !
+  ON C.PARENT_ID = P.ID
+GROUP BY P.ID  -- !
+ORDER BY P.ID;
+
+-- '자식 수 구하기' 문제에서 JOIN의 방향성에 대해 고민해볼 수 있는 문제
